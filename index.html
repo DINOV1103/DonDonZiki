@@ -995,10 +995,19 @@ const CH={
     lol:["QAH-QAH!","+1000 LID!","📈 HA-HA!"],boo:["BUDJET! 😭","ALGORITM!","UUUU!"]},
   shaxzod:{name:"Shaxzod",tag:"Farqi yo'q 🤷",accent:"#ff8a2a",
     skin:"#f3caa8",skinL:"#ffe5cf",skinD:"#d7a07c",hair:"#c8641e",hairL:"#f39a50",cloth:"#3b3f4a",clothD:"#23262e",pants:"#4d6b8c",shoe:"#e9e9e9",bias:null,
-    lol:["HE-HE.","FARQI YO'Q!","QAH-QAH!"],boo:["MENGA P*****! 😭","UUUU!","FARQI... YO'Q..."]}
+    lol:["HE-HE.","FARQI YO'Q!","QAH-QAH!"],boo:["MENGA P*****! 😭","UUUU!","FARQI... YO'Q..."]},
+  habibullo:{name:"Habibullo",tag:"Uzun bo'y, uzun bahona ☺️",accent:"#fde047",
+    skin:"#e9b995",skinL:"#fbd7b8",skinD:"#c98e67",hair:"#2b1a12",hairL:"#6b4a36",cloth:"#fcd34d",clothD:"#c99400",pants:"#1f2937",shoe:"#6b4423",bias:["qogoz",.38],
+    lol:["HM-HM-HM ☺️","HI-HI!","QAH-QAH!"],boo:["TOBIM QOCHDI 🤒","UUUU!","BAHONA BOR! 😅"]},
+  gulshoda:{name:"Gulshoda",tag:"Mazam yo'q... 🤢",accent:"#67e8f9",
+    skin:"#f3cdb0",skinL:"#ffe7d6",skinD:"#d9a787",hair:"#2a1a14",hairL:"#6b4a3a",cloth:"#5eead4",clothD:"#0f766e",pants:"#f3cdb0",shoe:"#f8fafc",bias:null,
+    lol:["XI-XI-XI!","VOY-VOY!","HA-HA!"],boo:["MAZAM YO'Q 🤢","OSHQOZONIM!","VOOY 😭"]},
+  ulugbek:{name:"Ulug'bek",tag:"Protein — hayot 🥤",accent:"#cbd5e1",
+    skin:"#c98b5e",skinL:"#e2a878",skinD:"#9e6440",hair:"#140d09",cloth:"#1e293b",clothD:"#0b1220",pants:"#374151",shoe:"#e5e7eb",bias:["tosh",.5],
+    lol:["QAH-QAH!","MASSA! 💪","HO-HO-HO!"],boo:["PROTEINIM! 😭","UUUU!","NEGAAA?!"]}
 };
 /* Sardor faqat Jasur akaning ismini biladi, qolganlarni sifati bilan chaqiradi */
-const NICK={asad:"Bitseps yigit",abdurayim:"Dumaloq koptok",zarina:"Qizil lab opa",muhiddin:"Soqolli aka",soliha:"Makiyaj opa",jasur:"Jasur aka",shaxzod:"Farqi yo'q aka"};
+const NICK={asad:"Bitseps yigit",abdurayim:"Dumaloq koptok",zarina:"Qizil lab opa",muhiddin:"Soqolli aka",soliha:"Makiyaj opa",jasur:"Jasur aka",shaxzod:"Farqi yo'q aka",habibullo:"Narvon aka",gulshoda:"Uzun soch opa",ulugbek:"Protein aka"};
 const KEYS=Object.keys(CH);
 
 const LINES={
@@ -1211,6 +1220,69 @@ const LINES={
         "{t}, [sen|siz] yutqazding[|iz], men yutdim. Farqi yo'q... lekin yoqimli."],
   flose:["Farqi yo'q, menga p*****... 😭 BUNI HISOBLAMANGLAR!",
          "Menga baribir, {t}. Faqat ertaga yana o'ynaymiz. Shunchaki. Farqi yo'q."]
+ },
+ habibullo:{
+  intro:["Hm-hm ☺️ Salom, {t}. Bo'yim uzun, lekin g'alabam undan ham uzun.",
+         "{t}, tepadan hammasi ko'rinadi. [Sening|Sizning] qo'ling ham ☺️",
+         "Bugun tobim yaxshi. Hozircha... ☺️",
+         "Oldindan aytib qo'yay, {t}: yutqazsam — sababi bo'ladi ☺️",
+         "Shiftga boshim tegmasa bo'ldi, qolganini yutaman ☺️"],
+  win:["Hm-hm ☺️ Kechira[san|siz], {t}... aslida kechirmayman.",
+       "Tepadan qarasam, {t} juda kichkina ko'rinarkan ☺️",
+       "Yutdim! Bugun na tobim qochdi, na qarindoshim — omadli kun ☺️",
+       "{t}, [senga|sizga] bahona kerakmi? Menda ko'p, bittasini beraman ☺️"],
+  lose:["Uzr, kecha amakivachcham olamdan o'tdi... yana. Shuning uchun ☺️",
+        "Tobim qochib qoldi 🤒 Harorat 36,6... juda baland!",
+        "Bu hisobmas! Qarindoshimni ko'rgani borishim kerak edi, xayolim bo'lindi 😢",
+        "Boshim shiftga tegib ketdi, o'shandan beri tobim yo'q 🤒",
+        "{t}, mayli, yutding[|iz]. Men ertaga kasal bo'lib qolaman ☺️"],
+  draw:["Durang ☺️ Hm-hm. Ertaga davom etamiz... agar tobim bo'lsa.",
+        "{t}, bir xil tanladik. Tepadan ko'rinib turgandi ☺️"],
+  fwin:["CHEMPION! ☺️ Bugun bahona kerak bo'lmadi. {t}, [senga|sizga] beraymi?",
+        "Hm-hm-hm ☺️ {t}, uzun bo'yning afzalligi — g'alabani birinchi ko'rasan."],
+  flose:["Uzr, bugun qarindoshlarimdan biri... xullas, bahona bor. Hisobmas ☺️",
+         "Tobim qochdi 🤒 Doktor «o'ynama» degan edi. Endi esladim ☺️"]
+ },
+ gulshoda:{
+  intro:["Voy, {t}... mazam yo'q-u, lekin mayli, o'ynaymiz 🤢",
+         "Sochim uzun, sabrim qisqa, {t}!",
+         "Oshqozonim og'riyapti, tezroq tugataylik. Men yutib 😏",
+         "{t}, sochimga qoqilib ketma[|ng] — uzunligi 2 metr!"],
+  win:["Voy, yutdimmi? Mazam yo'q edi-ku! 😅",
+       "{t}, qara[|ng] — kasal holimda ham yutdim! 💁‍♀️",
+       "Sochimni silkitsam, g'alaba o'zi keladi ✨",
+       "Oshqozonim ham xursand bo'ldi, og'rig'i qoldi! 😄"],
+  lose:["Mazam yo'q... oshqozonim og'riyapti 🤢 Shuning uchun!",
+        "Sochim ko'zimga tushdi, ko'rmadim!",
+        "Ertalab nonushta qilmagandim, boshim aylanyapti 🤢",
+        "{t}, bu adolatdan emas — men kasalman! 🤒"],
+  draw:["Durang... mazam yo'q, keyin davom etamiz 🤢",
+        "{t}, [sen|siz] ham kasalmi[san|siz]? Bir xil tanladik 😅"],
+  fwin:["G'olib — Gulshoda! 👑 Kasal holimda! Sog' bo'lsam nima bo'lardi?",
+        "{t}, sochimdek uzun g'alaba bo'ldi! ✨"],
+  flose:["Mazam yo'q edi... oshqozonim og'riyapti 🤢 Ertaga sog' bo'lib qaytaman!",
+         "Hisobmas! Men bugun bemorman 🤒"]
+ },
+ ulugbek:{
+  intro:["Protein ichib oldim 🥤 {t}, endi [sen|siz] tugading[|iz]!",
+         "{t}, men bilan o'ynash — shtanga ko'tarishdek og'ir 🏋️",
+         "Massa — hamma narsa! Qolgani — gap.",
+         "Kuniga 6 mahal ovqat, 3 mahal protein. {t}, [sen|siz]-chi? Bir mahal choy? 😏",
+         "Ko'zlarim dumaloq — hammasini ko'rib turibman, {t} 👀"],
+  win:["Massa yutdi! 💪🥤",
+       "{t}, yig'lama[|ng]. Protein beraymi? Yig'lashga ham kuch kerak.",
+       "Lablarim katta, g'alabam undan ham katta! 😄",
+       "Ko'zlarim dumaloq, hisob esa — aniq!"],
+  lose:["Proteinim tugab qolgan edi! Shuning uchun!",
+        "Mushaklarim sovib qoldi, razminka qilmagandim!",
+        "Bu raundni «dam olish kuni» deb yozamiz.",
+        "{t}, bir raund yutding[|iz], lekin massa baribir menda!"],
+  draw:["Durang? Protein ichib, qaytadan! 🥤",
+        "{t}, meni ko'chirma[|ng]. Menga o'xshash uchun 5 yil zal kerak."],
+  fwin:["CHEMPION! 🏆🥤 {t}, zalga yozil[|ing], men murabbiy bo'laman!",
+        "Massa + protein = g'alaba. Oddiy matematika, {t}!"],
+  flose:["Proteinim yetmadi... Ertaga ikki barobar ichaman! 🥤",
+         "Mayli, {t}. Zalga ketdim — qasos uchun massa yig'aman!"]
  }
 };
 const DUEL={
@@ -1250,6 +1322,22 @@ jasur:{shaxzod:{win:["Shaxzod, «farqi yo'q» deysanmi? Premiyasiz qolsang ham f
  sardor:{shaxzod:{intro:["Farqi yo'q aka, sizga ham target yoqsam, farqi yo'qmi? 📈"]}}
 };
 for(const k in DUEL2){DUEL[k]=DUEL[k]||{};for(const t in DUEL2[k])DUEL[k][t]=DUEL2[k][t];}
+const DUEL3={
+ ulugbek:{asad:{intro:["Asadxo'ja, bitsepsingni ko'rdim. Yaxshi... bolalar uchun 💪"],win:["Asadxo'ja, zalga qaytib bor. Proteinimdan ozgina beraman 🥤"]},
+          jasur:{intro:["Jasur aka, zalga obuna qilib bersangiz — ofisni ko'tarib yuraman 💪"]}},
+ asad:{ulugbek:{intro:["Ulug'bek, massang ko'p, lekin tezlik menda! 💪"],lose:["Ulug'bek, bu adolatdan emas — sen protein doping qilding!"]}},
+ jasur:{habibullo:{intro:["Habibullo, bu oyda uchinchi marta xolang «vafot etdi». Ma'lumotnoma olib kel!"],win:["Habibullo, bahonangni yozma ravishda topshir. Ertaga 8:00 da!"]},
+        gulshoda:{intro:["Gulshoda, oshqozoning faqat ish vaqtida og'riydimi?"],win:["Gulshoda, kasallik varaqasini buxgalteriyaga topshir 📋"]}},
+ habibullo:{jasur:{lose:["Jasur aka, uzr... bugun tobim yo'q edi. Ertaga ham bo'lmasa kerak ☺️"]},
+            gulshoda:{intro:["Gulshoda, sening oshqozoning, mening qarindoshlarim — kim ko'proq bahona topadi? ☺️"]}},
+ gulshoda:{jasur:{lose:["Jasur aka, mazam yo'q... ertaga ishga kela olmayman 🤢"]},
+           habibullo:{intro:["Habibullo, bahonalar chempioni — men! Sen shunchaki havaskorsan 🤢"],win:["Habibullo, bu safar bahonangni ham yutdim 😄"]}},
+ sardor:{ulugbek:{intro:["Protein aka, mushaklaringizni reklama qilsam — 1 million qamrov! 📈"]}},
+ muhiddin:{habibullo:{win:["Habibullo, bo'ying uzun, g'alabang qisqa ekan."]}},
+ soliha:{gulshoda:{intro:["Gulshoda, sochingizga qaysi shampun? Menga ham ayting 💅"]}},
+ shaxzod:{ulugbek:{lose:["Ulug'bek... massangga farqi yo'q, menga p*****. Lekin alam qildi."]}}
+};
+for(const k in DUEL3){DUEL[k]=DUEL[k]||{};for(const t in DUEL3[k])DUEL[k][t]=Object.assign(DUEL[k][t]||{},DUEL3[k][t]);}
 const EMO={tosh:"✊",qogoz:"✋",qaychi:"✌️"};
 const BEATS={tosh:"qaychi",qaychi:"qogoz",qogoz:"tosh"};
 
@@ -1285,18 +1373,23 @@ function eyes(k,e,c){
     if(k==="soliha"&&e==="idle"){
       s+=`<path d="M69 90 Q80 78 91 88" stroke="#b07a3a" stroke-width="5" fill="none" opacity=".55" stroke-linecap="round"/><path d="M109 88 Q120 78 131 90" stroke="#b07a3a" stroke-width="5" fill="none" opacity=".55" stroke-linecap="round"/>`;
     }
-    if(k==="abdurayim"&&e==="idle"){
+    if(k==="ulugbek"){
+      const q=e==="tense"?0:1;
+      s=`<circle cx="79" cy="92" r="13" fill="#fff" stroke="${D}" stroke-width="1.5"/><circle cx="121" cy="92" r="13" fill="#fff" stroke="${D}" stroke-width="1.5"/>
+         <circle cx="${79+q}" cy="93" r="6.5" fill="${D}"/><circle cx="${121+q}" cy="93" r="6.5" fill="${D}"/><circle cx="82" cy="89.5" r="2.4" fill="#fff"/><circle cx="124" cy="89.5" r="2.4" fill="#fff"/>`;
+    }
+    if((k==="abdurayim"||k==="habibullo")&&e==="idle"){
       s+=`<path d="M69 101 Q80 95 91 101 M109 101 Q120 95 131 101" stroke="${c.skinD}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
     }
   }
   if(k==="soliha") s+=`<path d="M69 92 Q80 81 91 90 M109 90 Q120 81 131 92" stroke="${D}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M70 91 L60 85 M130 91 L140 85" stroke="${D}" stroke-width="3.2" stroke-linecap="round"/><path d="M74 85 L71 79 M79 83 L77 77 M126 85 L129 79 M121 83 L123 77" stroke="${D}" stroke-width="2" stroke-linecap="round"/>`;
-  if(k==="zarina") s+=`<path d="M70 87 L63 82 M73 84 L68 78 M130 87 L137 82 M127 84 L132 78" stroke="${D}" stroke-width="2.2" stroke-linecap="round"/>`;
+  if(k==="zarina"||k==="gulshoda") s+=`<path d="M70 87 L63 82 M73 84 L68 78 M130 87 L137 82 M127 84 L132 78" stroke="${D}" stroke-width="2.2" stroke-linecap="round"/>`;
   return s;
 }
 
 function brows(k,e,c){
   if(k==="abdurayim") return "";
-  const w={asad:5.5,abdurayim:4.5,zarina:3,muhiddin:8,jasur:5.5,soliha:4,sardor:4,shaxzod:4.5}[k], col=k==="soliha"?"#3d2415":c.hair;
+  const w={asad:5.5,abdurayim:4.5,zarina:3,muhiddin:8,jasur:5.5,soliha:4,sardor:4,shaxzod:4.5,habibullo:3.5,gulshoda:3.2,ulugbek:7}[k], col=k==="soliha"?"#3d2415":c.hair;
   let L,R;
   if(e==="laugh"){L="M68 74 Q80 64 92 72";R="M108 72 Q120 64 132 74";}
   else if(e==="cry"){L="M68 80 Q80 76 92 69";R="M108 69 Q120 76 132 80";}
@@ -1306,13 +1399,18 @@ function brows(k,e,c){
   else if(k==="soliha"){L="M67 77 Q80 65 93 73";R="M107 73 Q120 65 133 77";}
   else if(k==="jasur"){L="M68 78 Q80 73 92 79";R="M108 79 Q120 73 132 78";}
   else if(k==="shaxzod"){L="M68 79 Q80 76 92 78";R="M108 78 Q120 76 132 79";}
+  else if(k==="habibullo"){L="M68 74 Q80 68 92 73";R="M108 73 Q120 68 132 74";}
+  else if(k==="gulshoda"){L="M68 77 Q80 73 92 70";R="M108 70 Q120 73 132 77";}
+  else if(k==="ulugbek"){L="M65 76 L93 73";R="M107 73 L135 76";}
   else {L="M68 76 Q80 70 92 76";R="M108 76 Q120 70 132 76";}
   return `<path d="${L}" stroke="${col}" stroke-width="${w}" fill="none" stroke-linecap="round"/><path d="${R}" stroke="${col}" stroke-width="${w}" fill="none" stroke-linecap="round"/>`;
 }
 
 function nose(k,c){
   if(k==="abdurayim"||k==="sardor") return `<ellipse cx="100" cy="108" rx="8" ry="6" fill="${c.skinD}" opacity=".6"/><ellipse cx="98" cy="106" rx="3" ry="2" fill="#fff" opacity=".45"/>`;
-  if(k==="zarina"||k==="soliha") return `<path d="M100 101 Q105 109 99 111" stroke="${c.skinD}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+  if(k==="ulugbek") return `<ellipse cx="100" cy="105" rx="9" ry="6.5" fill="${c.skinD}" opacity=".45"/><path d="M91 109 Q100 115 109 109" stroke="${c.skinD}" stroke-width="3.2" fill="none" stroke-linecap="round"/>`;
+  if(k==="habibullo") return `<path d="M100 95 Q107 112 97 116" stroke="${c.skinD}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+  if(k==="zarina"||k==="soliha"||k==="gulshoda") return `<path d="M100 101 Q105 109 99 111" stroke="${c.skinD}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
   return `<path d="M100 98 Q108 110 98 113" stroke="${c.skinD}" stroke-width="3.2" fill="none" stroke-linecap="round"/>`;
 }
 
@@ -1327,8 +1425,24 @@ function mouth(k,e){
             <path d="M77 122 Q104 123.5 126 117.5" stroke="${rd}" stroke-width="2.5" fill="none"/>
             <ellipse cx="97" cy="131" rx="10" ry="3" fill="#fff" opacity=".55"/><ellipse cx="90" cy="114" rx="4" ry="1.5" fill="#fff" opacity=".5"/>`;
   }
+  if(k==="ulugbek"){
+    const lp="#b8604f",ld="#8a3f33";
+    if(e==="laugh") return `<path d="M74 118 Q100 156 126 118 Q100 126 74 118 Z" fill="#4a1020" stroke="${lp}" stroke-width="9" stroke-linejoin="round"/><path d="M82 121 Q100 126 118 121 L117 125 Q100 130 83 125 Z" fill="#fff"/>`;
+    if(e==="cry") return `<path d="M80 138 Q100 112 120 138 Q100 131 80 138 Z" fill="#4a1020" stroke="${lp}" stroke-width="9" stroke-linejoin="round"/>`;
+    if(e==="tense") return `<path d="M78 124 Q100 114 122 124 Q100 136 78 124 Z" fill="${lp}"/><path d="M80 124 L120 124" stroke="${ld}" stroke-width="2.5"/>`;
+    return `<path d="M76 122 Q86 111 100 116 Q114 111 124 122 Q100 127 76 122 Z" fill="${lp}"/><path d="M76 122 Q100 127 124 122 Q118 142 100 142 Q82 142 76 122 Z" fill="#c9705e"/><path d="M78 122 Q100 126 122 122" stroke="${ld}" stroke-width="2.5" fill="none"/><ellipse cx="96" cy="132" rx="9" ry="3" fill="#fff" opacity=".35"/>`;
+  }
+  if(k==="habibullo"){
+    const d2="#5a2020";
+    if(e==="laugh") return `<path d="M72 116 Q100 148 128 116" stroke="${d2}" stroke-width="5.5" fill="none" stroke-linecap="round"/><path d="M70 113 q-3 4 1 8 M130 113 q3 4 -1 8" stroke="${d2}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+    if(e==="cry") return `<path d="M82 136 Q91 127 100 133 Q109 127 118 136" stroke="${d2}" stroke-width="4.5" fill="none" stroke-linecap="round"/>`;
+    if(e==="tense") return `<path d="M86 128 L114 128" stroke="${d2}" stroke-width="4.5" stroke-linecap="round"/>`;
+    return `<path d="M80 121 Q100 138 120 121" stroke="${d2}" stroke-width="4.5" fill="none" stroke-linecap="round"/><path d="M78 118 q-3 3 0 6 M122 118 q3 3 0 6" stroke="${d2}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
+  }
+  if(k==="gulshoda"&&e==="idle") return `<path d="M88 129 Q94 123 100 125 Q106 123 112 129 Q100 133 88 129 Z" fill="#e0707f"/><path d="M89 129 Q100 131 111 129" stroke="#b04a5c" stroke-width="1.5" fill="none"/>`;
+  if(k==="gulshoda"&&e==="tense") return `<path d="M88 127 Q100 122 112 127 Q100 132 88 127 Z" fill="#e0707f"/>`;
   const dk=k==="muhiddin"?"#7a2230":"#4a1020";
-  const ls=k==="muhiddin"?` stroke="#c97a6a" stroke-width="3"`:k==="soliha"?` stroke="#d9546e" stroke-width="5" stroke-linejoin="round"`:"";
+  const ls=k==="muhiddin"?` stroke="#c97a6a" stroke-width="3"`:(k==="soliha"||k==="gulshoda")?` stroke="${k==="gulshoda"?"#e0707f":"#d9546e"}" stroke-width="5" stroke-linejoin="round"`:"";
   const crooked=(y)=>`<g fill="#fffbe6" stroke="#d6cca6" stroke-width=".6"><rect x="84" y="${y}" width="6" height="6" rx="1" transform="rotate(-11 87 ${y+3})"/><rect x="90.5" y="${y+.5}" width="6" height="8" rx="1" transform="rotate(7 93 ${y+4})"/><rect x="97" y="${y}" width="6.5" height="5" rx="1"/><rect x="103.5" y="${y+1}" width="5.5" height="8" rx="1" transform="rotate(-9 106 ${y+5})"/><rect x="109.5" y="${y+.5}" width="6" height="6" rx="1" transform="rotate(13 112 ${y+3})"/></g>`;
   if(k==="shaxzod"&&e==="idle") return `<path d="M80 118 Q100 138 120 118 Q100 123 80 118 Z" fill="${dk}"/>`+crooked(119);
   if(k==="shaxzod"&&e==="laugh") return `<path d="M74 116 Q100 158 126 116 Q100 124 74 116 Z" fill="${dk}"/>`+crooked(118)+`<ellipse cx="100" cy="131" rx="10" ry="4.5" fill="#ff7a8a"/>`;
@@ -1534,6 +1648,69 @@ function charSVG(k,e){
       + blush(e,8) + nose(k,c) + mouth(k,e) + eyes(k,e,c) + brows(k,e,c) + fx(e,k);
   }
 
+  else if(k==="habibullo"){
+    const H="translate(100 60) scale(.8) translate(-100 -95)";
+    const arm=`<path d="M89 122 Q77 150 79 180" stroke="${c.cloth}" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="79" cy="184" r="5.5" fill="${c.skin}"/>`;
+    b = `<ellipse cx="100" cy="251" rx="36" ry="6" fill="#000" opacity=".35"/>`
+      + `<rect x="88" y="168" width="9" height="74" rx="4.5" fill="${c.pants}"/><rect x="103" y="168" width="9" height="74" rx="4.5" fill="${c.pants}"/>`
+      + `<ellipse cx="91" cy="244" rx="10" ry="5" fill="${c.shoe}"/><ellipse cx="109" cy="244" rx="10" ry="5" fill="${c.shoe}"/>`
+      + `<path d="M84 172 Q81 130 89 118 Q100 112 111 118 Q119 130 116 172 Z" fill="${CL}"/>`
+      + `<path d="M100 121 L100 163" stroke="${c.clothD}" stroke-width="1.5"/><circle cx="100" cy="132" r="1.4" fill="${c.clothD}"/><circle cx="100" cy="146" r="1.4" fill="${c.clothD}"/>`
+      + `<rect x="84" y="163" width="32" height="6" rx="2" fill="#3b2a1a"/><rect x="97" y="162.5" width="7" height="7" rx="1.5" fill="#d4a017"/>`
+      + mirror(arm)
+      + `<rect x="96" y="96" width="8" height="24" rx="3" fill="${c.skinD}"/>`
+      + `<g transform="${H}">`
+      + `<circle cx="49" cy="98" r="9" fill="${c.skin}"/><circle cx="151" cy="98" r="9" fill="${c.skin}"/>`
+      + `<ellipse cx="100" cy="97" rx="52" ry="57" fill="${SK}"/>`
+      + `<path d="M48 90 Q44 32 100 29 Q158 32 152 86 Q147 62 132 56 Q104 60 82 50 Q62 48 53 70 Q49 80 48 90 Z" fill="${c.hair}"/>`
+      + `<path d="M60 52 Q90 44 120 50 M70 42 Q100 34 132 44 M134 58 Q144 64 150 76" stroke="${c.hairL}" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>`
+      + blush(e,10) + nose(k,c) + mouth(k,e) + eyes(k,e,c) + brows(k,e,c) + fx(e,k)
+      + `</g>`;
+  }
+
+  else if(k==="gulshoda"){
+    const arm=`<path d="M68 166 Q56 186 62 206" stroke="${c.cloth}" stroke-width="13" stroke-linecap="round" fill="none"/><circle cx="62" cy="209" r="7.5" fill="${c.skin}"/>`;
+    b = SH + legs(c)
+      + `<path d="M34 96 Q28 24 100 20 Q172 24 166 96 Q174 168 162 246 Q146 252 132 240 L68 240 Q54 252 38 246 Q26 168 34 96 Z" fill="${c.hair}"/>`
+      + `<path d="M44 120 Q40 180 46 238 M156 120 Q160 180 154 238 M58 180 Q56 210 60 236 M142 180 Q144 210 140 236" stroke="${c.hairL}" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>`
+      + `<path d="M62 236 Q62 176 76 158 Q100 150 124 158 Q138 176 138 236 Z" fill="${CL}"/>`
+      + `<path d="M74 186 Q100 194 126 186" stroke="${c.clothD}" stroke-width="3" fill="none"/><path d="M63 230 Q100 238 137 230" stroke="#fff" stroke-width="2.5" fill="none" opacity=".6"/>`
+      + arm
+      + `<path d="M132 166 Q142 186 110 192" stroke="${c.cloth}" stroke-width="13" stroke-linecap="round" fill="none"/><circle cx="107" cy="192" r="7.5" fill="${c.skin}"/>`
+      + `<ellipse cx="100" cy="98" rx="55" ry="57" fill="${SK}"/>`
+      + blush(e,9) + nose(k,c) + mouth(k,e) + eyes(k,e,c)
+      + `<path d="M42 98 Q36 30 100 27 Q164 30 158 98 Q150 60 100 45 Q50 60 42 98 Z" fill="${c.hair}"/>`
+      + `<path d="M99 34 Q62 38 50 72 Q42 110 46 196 Q56 150 58 102 Q66 62 99 46 Z" fill="${c.hair}"/><path d="M101 34 Q138 38 150 72 Q158 110 154 196 Q144 150 142 102 Q134 62 101 46 Z" fill="${c.hair}"/>`
+      + `<path d="M64 48 Q84 36 98 35 M116 38 Q136 42 148 60 M50 120 Q48 160 50 190 M150 120 Q152 160 150 190" stroke="${c.hairL}" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>`
+      + brows(k,e,c) + fx(e,k);
+  }
+
+  else if(k==="ulugbek"){
+    const H="translate(100 88) scale(.88) translate(-100 -95)";
+    b = `<ellipse cx="100" cy="251" rx="66" ry="8" fill="#000" opacity=".38"/>`
+      + `<rect x="74" y="204" width="23" height="38" rx="10" fill="${c.pants}"/><rect x="103" y="204" width="23" height="38" rx="10" fill="${c.pants}"/>`
+      + `<ellipse cx="85" cy="244" rx="16" ry="7" fill="${c.shoe}"/><ellipse cx="115" cy="244" rx="16" ry="7" fill="${c.shoe}"/>`
+      + `<path d="M34 214 Q24 160 56 142 Q100 126 144 142 Q176 160 166 214 Z" fill="${c.skin}"/>`
+      + `<path d="M56 214 Q52 176 64 150 L84 144 Q100 166 116 144 L136 150 Q148 176 144 214 Z" fill="${CL}"/>`
+      + `<text x="100" y="193" text-anchor="middle" font-family="Bungee,Impact,sans-serif" font-size="12" fill="${c.accent}">MASSA</text>`
+      + `<path d="M66 144 Q84 122 100 124 Q116 122 134 144 Q100 134 66 144 Z" fill="${c.skinD}"/>`
+      + `<circle cx="44" cy="156" r="21" fill="${c.skin}"/><ellipse cx="40" cy="182" rx="17" ry="23" fill="${c.skin}"/><ellipse cx="36" cy="176" rx="7" ry="10" fill="#fff" opacity=".18"/>`
+      + `<path d="M40 198 Q36 210 38 216" stroke="${c.skin}" stroke-width="18" stroke-linecap="round" fill="none"/><circle cx="38" cy="220" r="12" fill="${c.skinD}"/>`
+      + `<circle cx="156" cy="156" r="21" fill="${c.skin}"/><ellipse cx="162" cy="180" rx="16" ry="21" fill="${c.skin}"/><ellipse cx="160" cy="150" rx="8" ry="6" fill="#fff" opacity=".18"/>`
+      + `<path d="M162 196 Q168 186 160 176" stroke="${c.skin}" stroke-width="16" stroke-linecap="round" fill="none"/>`
+      + `<rect x="150" y="140" width="24" height="38" rx="6" fill="#e2e8f0"/><rect x="150" y="134" width="24" height="9" rx="3" fill="#0f172a"/><rect x="158" y="128" width="8" height="7" rx="2" fill="#0f172a"/>`
+      + `<rect x="150" y="152" width="24" height="12" fill="${c.accent}"/><text x="162" y="161.5" text-anchor="middle" font-family="Bungee,Impact,sans-serif" font-size="7" fill="#0f172a">PRO</text>`
+      + `<circle cx="160" cy="176" r="11" fill="${c.skinD}"/>`
+      + `<rect x="84" y="118" width="32" height="26" rx="8" fill="${c.skinD}"/>`
+      + `<g transform="${H}">`
+      + ears(c)
+      + `<ellipse cx="100" cy="95" rx="58" ry="56" fill="${SK}"/>`
+      + `<path d="M44 88 Q40 38 100 34 Q160 38 156 88 Q150 64 100 58 Q50 64 44 88 Z" fill="${c.hair}"/>`
+      + `<path d="M52 70 Q60 56 76 50 M148 70 Q140 56 124 50" stroke="#3a2a22" stroke-width="2" opacity=".5" fill="none"/>`
+      + blush(e,9) + nose(k,c) + mouth(k,e) + eyes(k,e,c) + brows(k,e,c) + fx(e,k)
+      + `</g>`;
+  }
+
   else { // muhiddin
     defs+=`<pattern id="${u}p" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="${c.cloth}"/><path d="M0 6 H12 M6 0 V12" stroke="${c.clothD}" stroke-width="2.2" opacity=".7"/></pattern>`;
     const arm=`<path d="M66 166 Q54 186 58 206" stroke="${c.cloth}" stroke-width="16" stroke-linecap="round" fill="none"/><circle cx="58" cy="210" r="9" fill="${c.skin}"/>`;
@@ -1634,8 +1811,9 @@ function line(k,type,tk){
 
 
 const QUOTE={asad:"Bilak — hamma narsa! 💪",abdurayim:"Fale kale! 😁",zarina:"Qizil pomada — g'alaba rangi 💋",muhiddin:"Men gapirmayman. Soqolim gapiradi.",
-  jasur:"Bu arena — mening kompaniyam.",soliha:"Euro style, darling 💅",sardor:"Sifat emas — soni muhim! 📈",shaxzod:"Farqi yo'q, menga p*****"};
-const TRAITS={asad:[98,60,90],abdurayim:[55,92,85],zarina:[75,95,95],muhiddin:[45,60,70],jasur:[90,80,95],soliha:[88,85,90],sardor:[70,55,100],shaxzod:[10,65,30]};
+  jasur:"Bu arena — mening kompaniyam.",soliha:"Euro style, darling 💅",sardor:"Sifat emas — soni muhim! 📈",shaxzod:"Farqi yo'q, menga p*****",
+  habibullo:"Uzr, bugun tobim yo'q edi... ☺️",gulshoda:"Mazam yo'q... oshqozonim og'riyapti 🤢",ulugbek:"Protein — hayot! 🥤"};
+const TRAITS={asad:[98,60,90],abdurayim:[55,92,85],zarina:[75,95,95],muhiddin:[45,60,70],jasur:[90,80,95],soliha:[88,85,90],sardor:[70,55,100],shaxzod:[10,65,30],habibullo:[30,70,100],gulshoda:[40,55,100],ulugbek:[92,55,60]};
 const TR_LBL=["Maqtanchoqlik","Masxarabozlik","Bahonalar"];
 const STAGES=["CHORAK FINAL","YARIM FINAL","FINAL"];
 const STAGE_SHORT=["Chorak","Yarim","Final"];
@@ -1759,7 +1937,7 @@ $("#sGo").addEventListener("click",()=>{
 /* ================= TOURNAMENT ================= */
 let T=null;
 function newTour(p){
-  const order=shuffle(KEYS);
+  const order=shuffle([p,...shuffle(KEYS.filter(k=>k!==p)).slice(0,7)]);
   const r0=[];for(let i=0;i<8;i+=2)r0.push({a:order[i],b:order[i+1],w:null,sa:0,sb:0});
   T={p,stage:0,rounds:[r0,[],[]],alive:true,champ:null,revealing:false};
   DB.stats.tours++;save();
@@ -1918,7 +2096,10 @@ const POWERS={
   jasur:{ic:"📜",nm:"JARIMA",ds:"Raqibning 1 yulduzini olib tashlaydi"},
   soliha:{ic:"🪞",nm:"KO'ZGU",ds:"Raqib qaysi qo'lni tanlaganini ko'rasan"},
   sardor:{ic:"📈",nm:"SONI MUHIM",ds:"Yutsang — birdaniga 2 yulduz olasan"},
-  shaxzod:{ic:"🤷",nm:"FARQI YO'Q",ds:"Raqibning superkuchini o'chirib qo'yadi"}
+  shaxzod:{ic:"🤷",nm:"FARQI YO'Q",ds:"Raqibning superkuchini o'chirib qo'yadi"},
+  habibullo:{ic:"🤒",nm:"BAHONA",ds:"Yutqazsang — raund bekor, raqib kuchidan ayriladi"},
+  gulshoda:{ic:"🤢",nm:"MAZAM YO'Q",ds:"Orqada bo'lsang — hisob almashib qoladi"},
+  ulugbek:{ic:"🥤",nm:"PROTEIN",ds:"Yulduzing yo'q bo'lsa — darhol +1 yulduz"}
 };
 const PWLINE={
   asad:"Bitseps, ishga tush! 💪",
@@ -1928,7 +2109,10 @@ const PWLINE={
   jasur:"Jarima! Bitta yulduzingni topshir.",
   soliha:"Bir daqiqa, ko'zguga qarab olay... 🪞",
   sardor:"Budjetni ikki baravar oshiraman! 📈",
-  shaxzod:"Sening kuching? Farqi yo'q, menga p*****."
+  shaxzod:"Sening kuching? Farqi yo'q, menga p*****.",
+  habibullo:"Uzr... bugun tobim qochdi. Yana 🤒",
+  gulshoda:"Voy, mazam yo'q... Hisob noto'g'ri, almashtiring! 🤢",
+  ulugbek:"Protein vaqti! 🥤 Massa — hamma narsa!"
 };
 
 /* ================= MATCH ================= */
@@ -2040,18 +2224,29 @@ function powerAvailable(S){
   if(M.pw[S].used)return false;
   if(h==="jasur"&&starsOf(O)<1)return false;
   if(h==="shaxzod"&&M.pw[O].spent)return false;
+  if(h==="gulshoda"&&!(starsOf(S)<starsOf(O)))return false;
+  if(h==="ulugbek"&&starsOf(S)!==0)return false;
   return true;
 }
 function renderPowerBtn(S){
   const b=$("#pwb");
-  if(!S){b.className="pwb off";b.disabled=true;return}
+  if(!S){
+    b.className="pwb off";b.disabled=true;
+    const h=isDuo()?null:M.p;
+    if(h)b.style.setProperty("--c",CH[h].accent);
+    b.querySelector(".pi").textContent=h?POWERS[h].ic:"⚡";
+    b.querySelector(".pt b").textContent=h?POWERS[h].nm:"SUPERKUCH";
+    b.querySelector(".pt small").textContent=h?POWERS[h].ds:"Har qahramonda 1 martalik kuch";
+    b.querySelector(".ps").textContent=h&&M.pw&&M.pw.L.used?"ISHLATILDI":"—";
+    return;
+  }
   const h=heroOf(S),P=POWERS[h];
   b.style.setProperty("--c",CH[h].accent);
   b.querySelector(".pi").textContent=P.ic;b.querySelector(".pt b").textContent=P.nm;
   let st,small=P.ds,cls;
   if(RS.arm[S]){st="FAOL ✓";cls="armed"}
   else if(M.pw[S].used){st="ISHLATILDI";cls="spent";if(RS.blocked[S])small="Raqib 🤷 FARQI YO'Q bilan o'chirdi"}
-  else if(!powerAvailable(S)){st="HOZIR EMAS";cls="lock";small=h==="jasur"?"Raqibda hali yulduz yo'q":h==="shaxzod"?"Raqibning kuchi allaqachon ishlatilgan":P.ds}
+  else if(!powerAvailable(S)){st="HOZIR EMAS";cls="lock";small=h==="jasur"?"Raqibda hali yulduz yo'q":h==="shaxzod"?"Raqibning kuchi allaqachon ishlatilgan":h==="gulshoda"?"Faqat hisobda orqada bo'lsang ishlaydi":h==="ulugbek"?"Faqat yulduzing yo'q bo'lganda ichiladi":P.ds}
   else{st="1 MARTA";cls="ready"}
   b.querySelector(".pt small").textContent=small;b.querySelector(".ps").textContent=st;
   b.className="pwb "+cls;b.disabled=cls!=="ready";
@@ -2128,6 +2323,9 @@ function aiPrepare(){
     if(h==="jasur"&&M.sp<1)p=0;
     if(h==="zarina"&&M.sp<1)p*=.35;
     if(h==="shaxzod"&&M.pw.L.spent)p=0;
+    if(h==="ulugbek")p=M.so===0?Math.max(p,.45):0;
+    if(h==="gulshoda")p=M.so<M.sp?.7:0;
+    if(h==="habibullo"&&M.sp===1)p+=.2;
     if(Math.random()<Math.min(p,.9)){RS.arm.R=true;pw.used=true}
   }
   if(RS.arm.R&&h==="abdurayim"){const s=shuffle(["tosh","qaychi","qogoz"]);RS.pick.R=[s[0],s[1]]}
@@ -2245,6 +2443,16 @@ async function resolveRound(tok){
     const O=other(S);addStars(O,-1);shake();
     await announce(S,`${CH[heroOf(O)].name} 1 yulduzidan ayrildi!`);if(!alive())return;
   }
+  // 2b) PROTEIN & MAZAM YO'Q
+  for(const S of ["L","R"]){
+    if(!armed(S,"ulugbek"))continue;
+    addStars(S,1);await announce(S,"+1 yulduz! Massa! 💪");if(!alive())return;
+  }
+  for(const S of ["L","R"]){
+    if(!armed(S,"gulshoda"))continue;
+    const a=M.sp;M.sp=M.so;M.so=a;updStars();shake();
+    await announce(S,`Hisob almashdi: ${M.sp} : ${M.so} 🤢`);if(!alive())return;
+  }
   // 3) reveals that happen before the result
   for(const S of ["L","R"]){
     if(armed(S,"soliha")){await announce(S,"Raqibning qo'lini oldindan ko'rib oldi!");if(!alive())return}
@@ -2262,7 +2470,7 @@ async function resolveRound(tok){
     big("DURANG!","draw",1200);sfx.draw();vib(25);
     setExpr("L","idle");setExpr("R","idle");
     await sleep(900);if(!alive())return;
-    for(const S of ["L","R"])for(const k of ["sardor","zarina","muhiddin"])if(armed(S,k)){await announce(S,"Durang chiqdi — kuch behuda ketdi 😅");if(!alive())return}
+    for(const S of ["L","R"])for(const k of ["sardor","zarina","muhiddin","habibullo"])if(armed(S,k)){await announce(S,"Durang chiqdi — kuch behuda ketdi 😅");if(!alive())return}
     const side=Math.random()<.5?"L":"R",k=heroOf(side),t=heroOf(other(side));
     await say(side,k,line(k,"draw",t),1100);if(!alive())return;
     return endRound(tok);
@@ -2276,6 +2484,16 @@ async function resolveRound(tok){
     await announce(Lo,"Raund hisobga kirmadi!");if(!alive())return;
     setExpr(Lo,"laugh");setExpr(W,"cry");sfx.laugh();burst(Lo,CH[lk].lol,"lol",2);
     for(const k of ["sardor","zarina"])if(armed(W,k)){await announce(W,"Qalqonga urildi — kuch behuda ketdi 😅");if(!alive())return}
+    await wait(1100*HOLD());
+    return endRound(tok);
+  }
+  // BAHONA — loss cancelled, the winner loses its power out of sympathy
+  if(armed(Lo,"habibullo")){
+    await sleep(900);if(!alive())return;
+    const wp=M.pw[W],had=!wp.spent;wp.used=true;wp.spent=true;updPwInd();
+    await announce(Lo,had?`Raund bekor! ${CH[wk].name} hamdardlik bildirib, superkuchidan voz kechdi 🙏`:"Raund hisobga kirmadi!");if(!alive())return;
+    setExpr(Lo,"laugh");setExpr(W,"cry");sfx.laugh();burst(Lo,CH[lk].lol,"lol",2);
+    for(const k of ["sardor","zarina"])if(armed(W,k)){await announce(W,"Bahonaga urildi — kuch behuda ketdi 😅");if(!alive())return}
     await wait(1100*HOLD());
     return endRound(tok);
   }
@@ -2294,7 +2512,7 @@ async function resolveRound(tok){
     else await announce(W,"O'g'irlashga yulduz yo'q edi 😅");
     if(!alive())return;
   }
-  if(armed(W,"muhiddin")){await announce(W,"Yutding — qalqon kerak bo'lmadi 😅");if(!alive())return}
+  for(const k of ["muhiddin","habibullo"])if(armed(W,k)){await announce(W,"Yutding — kuch kerak bo'lmadi 😅");if(!alive())return}
   for(const k of ["sardor","zarina"])if(armed(Lo,k)){await announce(Lo,"Raund boy berildi — kuch behuda ketdi 😅");if(!alive())return}
   await say(W,wk,line(wk,"win",lk),1300);if(!alive())return;
   await say(Lo,lk,line(lk,"lose",wk),1000);if(!alive())return;
@@ -2465,6 +2683,9 @@ const MINI_LINES={
   jasur:{good:["Bu KPI'ga yoziladi! 📈","{t}, premiyangni esla... ketdi.","Direktor doim bir qadam oldinda."],bad:["Buxgalteriya xatosi! Qayta hisoblaymiz!","Bu test rejimi edi.","Investor qo'ng'iroq qildi, chalg'idim!"]},
   soliha:{good:["Oops, {t}! 💅 Euro style!","Selfi uchun zo'r moment 📸","Darling, bu menga juda yarashadi!"],bad:["Kiprigim tushib ketdi!","Tonalnik ko'zimga kirdi!","Hojatxona oynasi aldadi!"]},
   sardor:{good:["Konversiya 100%! 📈","Soni muhim — yana bitta!","Jasur akaga skrinshot tashladim!"],bad:["Budjet tugab qoldi...","Algoritm o'zgardi!","Bu test kampaniya edi, xo'pmi?"]},
+  habibullo:{good:["Hm-hm ☺️ Oson bo'ldi!","Tepadan hammasi ko'rinadi ☺️","{t}, uzr, lekin yutdim ☺️"],bad:["Tobim qochdi 🤒","Uzr, qarindoshim... xullas, hisobmas ☺️","Boshim shiftga tegdi..."]},
+  gulshoda:{good:["Kasal holimda ham yutyapman! 😄","Sochimni silkitdim — tamom ✨","Voy, oshqozonim ham xursand!"],bad:["Mazam yo'q... 🤢","Oshqozonim og'riyapti!","Sochim ko'zimga tushdi!"]},
+  ulugbek:{good:["Massa! 💪","Protein ishlayapti 🥤","{t}, bu faqat razminka edi!"],bad:["Proteinim tugadi!","Mushaklarim sovidi!","Razminka qilmagandim!"]},
   shaxzod:{good:["Yutdim. Farqi yo'q, menga p*****.","He-he. Menga baribir.","Tishlarim qiyshiq, lekin yurishim tekis!"],bad:["Farqi yo'q, menga p*****... 😭","Menga baribir! ...Alam qildi.","Aslida xafa emasman. Farqi yo'q."]}
 };
 const GAMES={
@@ -2551,8 +2772,8 @@ function miniFinish(win,scoreTxt){
 
 /* ---------- SHASHKA ---------- */
 const SHK={B:null,ID:null,els:{},turn:1,sel:null,moves:[],busy:true,quiet:0,last:null};
-const SH_DEPTH={asad:2,abdurayim:3,zarina:3,muhiddin:4,jasur:4,soliha:3,sardor:2,shaxzod:1};
-const SH_NOISE={asad:40,abdurayim:25,zarina:25,muhiddin:6,jasur:8,soliha:20,sardor:60,shaxzod:220};
+const SH_DEPTH={asad:2,abdurayim:3,zarina:3,muhiddin:4,jasur:4,soliha:3,sardor:2,shaxzod:1,habibullo:2,gulshoda:2,ulugbek:3};
+const SH_NOISE={asad:40,abdurayim:25,zarina:25,muhiddin:6,jasur:8,soliha:20,sardor:60,shaxzod:220,habibullo:30,gulshoda:45,ulugbek:25};
 function shPos(el,i){const t=`translate(${(i&7)*100}%,${(i>>3)*100}%)`;el.style.transform=t;el.style.setProperty("--t",t)}
 function shInit(){
   const tok=MG.tok;
@@ -2719,7 +2940,7 @@ $("#ndGo").addEventListener("click",()=>{if(ND.busy||!ndHuman())return;tapFx();n
 
 /* ---------- QO'L KURASH ---------- */
 const KR={pos:0,run:false,raf:0,sp:0,so:0,acc:0,last:0,rate:6};
-const KR_RATE={asad:8.6,jasur:7.2,muhiddin:7.4,abdurayim:6.8,sardor:6.4,zarina:6.6,soliha:6.0,shaxzod:5.2};
+const KR_RATE={asad:8.6,jasur:7.2,muhiddin:7.4,abdurayim:6.8,sardor:6.4,zarina:6.6,soliha:6.0,shaxzod:5.2,habibullo:5.0,gulshoda:5.4,ulugbek:9.2};
 const KR_TAP=6;
 function krSvgInit(){
   const cL=CH[MG.p].accent,cR=CH[MG.o].accent,sL=CH[MG.p].skin,sR=CH[MG.o].skin,dL=CH[MG.p].skinD,dR=CH[MG.o].skinD;
@@ -2846,7 +3067,7 @@ $("#mcX").addEventListener("click",()=>{$("#mcov").classList.remove("show");$("#
 
 /* ---------- 4) TEZ QO'L (reaksiya) ---------- */
 const RX={sp:0,so:0,armed:false,go:false,t0:0,to:[]};
-const RX_RT={asad:330,jasur:300,muhiddin:285,abdurayim:360,sardor:315,zarina:345,soliha:355,shaxzod:430};
+const RX_RT={asad:330,jasur:300,muhiddin:285,abdurayim:360,sardor:315,zarina:345,soliha:355,shaxzod:430,habibullo:340,gulshoda:385,ulugbek:320};
 const RX_FS={shaxzod:.1,sardor:.08,asad:.06};
 function rxInit(){
   const duo=isDuoM();gxSetup("TEZ QO'L",duo);RX.sp=0;RX.so=0;RX.armed=false;
@@ -2888,7 +3109,7 @@ function rxTap(S){
 
 /* ---------- 5) X-O ---------- */
 const XO={b:null,turn:"L",sp:0,so:0,starter:"L",busy:true,games:0};
-const XO_ERR={asad:.3,abdurayim:.25,zarina:.2,muhiddin:.04,jasur:.1,soliha:.2,sardor:.35,shaxzod:.55};
+const XO_ERR={asad:.3,abdurayim:.25,zarina:.2,muhiddin:.04,jasur:.1,soliha:.2,sardor:.35,shaxzod:.55,habibullo:.25,gulshoda:.3,ulugbek:.3};
 const XO_LN=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 function xoInit(){
   gxSetup("X-O",false);XO.sp=0;XO.so=0;XO.starter="L";XO.games=0;
@@ -2948,8 +3169,8 @@ function xoAI(){
 
 /* ---------- 6) 4 TA QATOR ---------- */
 const C4={g:null,turn:1,busy:true,moves:0};
-const C4_DEPTH={asad:2,abdurayim:3,zarina:3,muhiddin:6,jasur:5,soliha:3,sardor:2,shaxzod:1};
-const C4_NOISE={asad:80,abdurayim:60,zarina:60,muhiddin:0,jasur:10,soliha:50,sardor:120,shaxzod:400};
+const C4_DEPTH={asad:2,abdurayim:3,zarina:3,muhiddin:6,jasur:5,soliha:3,sardor:2,shaxzod:1,habibullo:3,gulshoda:2,ulugbek:2};
+const C4_NOISE={asad:80,abdurayim:60,zarina:60,muhiddin:0,jasur:10,soliha:50,sardor:120,shaxzod:400,habibullo:50,gulshoda:90,ulugbek:90};
 const C4_ORD=[3,2,4,1,5,0,6];
 function c4Drop(g,c){for(let r=5;r>=0;r--)if(!g[r][c])return r;return -1}
 function c4Win(g,r,c,s){
@@ -3034,10 +3255,10 @@ async function c4Place(c,s){
 
 /* ---------- 7) XOTIRA ---------- */
 const MM={cards:[],open:[],done:[],turn:"L",sp:0,so:0,busy:true,seen:{}};
-const MM_MEM={muhiddin:.92,jasur:.85,soliha:.72,zarina:.7,sardor:.6,asad:.55,abdurayim:.48,shaxzod:.35};
+const MM_MEM={muhiddin:.92,jasur:.85,soliha:.72,zarina:.7,sardor:.6,asad:.55,abdurayim:.48,shaxzod:.35,habibullo:.6,gulshoda:.5,ulugbek:.45};
 function mmInit(){
   gxSetup("XOTIRA",false);
-  MM.cards=shuffle(KEYS.concat(KEYS));MM.open=[];MM.done=Array(16).fill(null);MM.turn="L";MM.sp=0;MM.so=0;MM.seen={};MM.busy=true;
+  {const pk=shuffle(KEYS).slice(0,8);MM.cards=shuffle(pk.concat(pk))}MM.open=[];MM.done=Array(16).fill(null);MM.turn="L";MM.sp=0;MM.so=0;MM.seen={};MM.busy=true;
   $("#gxMid").innerHTML=`<div class="mmg" id="mmG">${MM.cards.map((k,i)=>`<button class="mmc" data-i="${i}" aria-label="Karta"><span class="mmi"><span class="mmb"></span><span class="mmf" style="--c:${CH[k].accent}">${avatarSVG(k,"laugh")}</span></span></button>`).join("")}</div><div class="mgnote" id="mmN"></div>`;
   const G=$("#mmG");G.style.setProperty("--p1",CH[MG.p].accent);G.style.setProperty("--p2",CH[MG.o].accent);
   $$("#mmG .mmc").forEach(b=>b.addEventListener("click",()=>mmTap(+b.dataset.i)));
@@ -3199,7 +3420,7 @@ function pnDecided(){
 
 /* ---------- 9) PIYOLA ---------- */
 const CU={slot:[0,1,2],coin:0,turn:"L",n:0,sp:0,so:0,busy:true};
-const CU_ACC={muhiddin:.9,jasur:.85,soliha:.75,zarina:.72,sardor:.65,asad:.6,abdurayim:.5,shaxzod:.4};
+const CU_ACC={muhiddin:.9,jasur:.85,soliha:.75,zarina:.72,sardor:.65,asad:.6,abdurayim:.5,shaxzod:.4,habibullo:.78,gulshoda:.55,ulugbek:.55};
 const CU_PLAN=[4,4,6,6,8,8,10,10,11,11];
 const CU_X=[17,50,83];
 const PIYOLA=`<svg viewBox="0 0 120 100" aria-hidden="true"><defs><linearGradient id="pyg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d7e2f4"/><stop offset=".45" stop-color="#ffffff"/><stop offset="1" stop-color="#c3d0ea"/></linearGradient></defs>
@@ -3279,8 +3500,8 @@ async function cuGuess(i){
 
 /* ---------- 10) TEZ HISOB ---------- */
 const MT={sp:0,so:0,q:null,lock:{},busy:true,n:0};
-const MT_TIME={muhiddin:1900,jasur:1700,sardor:1400,soliha:2300,zarina:2400,asad:2600,abdurayim:2800,shaxzod:3300};
-const MT_ERR={sardor:.28,shaxzod:.3,asad:.2,abdurayim:.18,zarina:.15,soliha:.12,jasur:.07,muhiddin:.05};
+const MT_TIME={muhiddin:1900,jasur:1700,sardor:1400,soliha:2300,zarina:2400,asad:2600,abdurayim:2800,shaxzod:3300,habibullo:2500,gulshoda:2700,ulugbek:3000};
+const MT_ERR={sardor:.28,shaxzod:.3,asad:.2,abdurayim:.18,zarina:.15,soliha:.12,jasur:.07,muhiddin:.05,habibullo:.15,gulshoda:.2,ulugbek:.22};
 function mtGen(n){
   const lvl=Math.min(2,Math.floor(n/3));let a,b,op;
   if(lvl===0){op=rnd(["+","−"]);a=rint(2,12);b=rint(2,9)}
