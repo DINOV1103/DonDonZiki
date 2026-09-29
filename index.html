@@ -859,6 +859,7 @@ button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
     <div class="topbar"><button class="ib" id="seBack" aria-label="Orqaga"></button><div class="ttl">SOZLAMALAR</div><div class="spacer"></div></div>
     <div class="scroll"><div class="wrap">
       <button class="set" data-k="sound"><span class="si">🔊</span><span class="st"><b>Ovoz effektlari</b><span>Baraban, kulgi, yig'i, "PIIIP"</span></span><span class="sw"></span></button>
+      <button class="set" data-k="music"><span class="si">🎵</span><span class="st"><b>Fon musiqasi</b><span>Menyu, jang va mini o'yinlar uchun alohida kuy</span></span><span class="sw"></span></button>
       <button class="set" data-k="vib"><span class="si">📳</span><span class="st"><b>Titrash</b><span>Zarba va natijalarda telefon titraydi</span></span><span class="sw"></span></button>
       <button class="set" data-k="fast"><span class="si">⏩</span><span class="st"><b>Tezkor dialoglar</b><span>Gaplar ekranda qisqaroq turadi</span></span><span class="sw"></span></button>
       <button class="btn danger" id="resetStats">Statistikani tozalash</button>
@@ -1838,7 +1839,7 @@ function icons(){
 
 /* ---------- storage ---------- */
 const STORE_KEY="ddz_release_v1";
-function defDB(){return{settings:{sound:true,vib:true,fast:false,seenPw:false},stats:{played:0,wins:0,losses:0,streak:0,best:0,titles:0,tours:0,duo:0,powers:0,hero:{},mini:{}}}}
+function defDB(){return{settings:{sound:true,music:true,vib:true,fast:false,seenPw:false},stats:{played:0,wins:0,losses:0,streak:0,best:0,titles:0,tours:0,duo:0,powers:0,hero:{},mini:{}}}}
 function load(){
   const d=defDB();
   try{const v=JSON.parse(localStorage.getItem(STORE_KEY)||"null");
@@ -1855,6 +1856,7 @@ function avHTML(k,e="idle",cls=""){return `<span class="av ${cls}" style="--c:${
 function go(id){
   $$(".screen").forEach(s=>s.classList.toggle("active",s.id===id));
   if(id==="home")homeOn();else homeOff();
+  musicFor(id);
 }
 let toastT=null;
 function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),2200)}
@@ -2076,8 +2078,9 @@ $("#stBack").addEventListener("click",()=>{tapFx();go("home")});
 function renderSettings(){$$(".set").forEach(b=>b.classList.toggle("on",!!DB.settings[b.dataset.k]))}
 $$(".set").forEach(b=>b.addEventListener("click",()=>{
   const k=b.dataset.k;DB.settings[k]=!DB.settings[k];save();
-  if(k==="sound"){MUTED=!DB.settings.sound;updMute()}
-  renderSettings();ensureAudio();sfx.tap();if(k==="vib"&&DB.settings.vib)vib(30);
+  if(k==="sound"){MUTED=!DB.settings.sound;updMute();updMgMute()}
+  renderSettings();ensureAudio();sfx.tap();
+  if(k==="music"){if(DB.settings.music)audioWake();else musicStop();updMute();updMgMute()}if(k==="vib"&&DB.settings.vib)vib(30);
 }));
 $("#resetStats").addEventListener("click",async()=>{
   tapFx();
@@ -2123,7 +2126,7 @@ let skipFn=null;
 function wait(ms){return new Promise(res=>{const t=setTimeout(done,ms);function done(){clearTimeout(t);skipFn=null;res()}skipFn=done;})}
 stage.addEventListener("pointerdown",()=>{if(skipFn)skipFn()});
 const HOLD=()=>DB.settings.fast?.45:1;
-function updMute(){$("#gMute").innerHTML=MUTED?IC.mute:IC.snd}
+function updMute(){$("#gMute").innerHTML=soundOff()?IC.mute:IC.snd}
 const other=s=>s==="L"?"R":"L";
 const heroOf=s=>s==="L"?M.p:M.o;
 const starsOf=s=>s==="L"?M.sp:M.so;
@@ -2529,7 +2532,7 @@ async function endRound(tok){
   roundStart();
 }
 function oppPick(k){const b=CH[k].bias;if(b&&Math.random()<b[1])return b[0];return rnd(["tosh","qaychi","qogoz"])}
-$("#gMute").addEventListener("click",()=>{MUTED=!MUTED;DB.settings.sound=!MUTED;save();updMute();ensureAudio();sfx.tap()});
+$("#gMute").addEventListener("click",toggleAll);
 async function exitMatch(){
   tapFx();
   const tour=M.mode==="tour";
@@ -2733,14 +2736,14 @@ function mgSay(el,k,tk,type,prob=1){
   clearTimeout(mgbT.get(el));mgbT.set(el,setTimeout(()=>b.classList.remove("on"),2700));
 }
 function mgBan(sel,text){const b=$(sel);b.textContent=text;b.classList.remove("on");void b.offsetWidth;b.classList.add("on");clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove("on"),1400)}
-function updMgMute(){$$(".mgm").forEach(b=>b.innerHTML=MUTED?IC.mute:IC.snd)}
+function updMgMute(){$$(".mgm").forEach(b=>b.innerHTML=soundOff()?IC.mute:IC.snd)}
 $$(".mgx").forEach(b=>{b.innerHTML=IC.x;b.addEventListener("click",async()=>{
   tapFx();const wasRun=KR.run;KR.run=false;
   const ok=await ask("🚪","O'yindan chiqasizmi?","Bu o'yin natijasi saqlanmaydi.","Ha, chiqish","Davom etish");
   if(ok){mgStop();renderMinis();go("minis")}
   else if(wasRun){KR.run=true;KR.last=performance.now();KR.raf=requestAnimationFrame(krLoop)}
 })});
-$$(".mgm").forEach(b=>b.addEventListener("click",()=>{MUTED=!MUTED;DB.settings.sound=!MUTED;save();updMgMute();updMute();ensureAudio();sfx.tap()}));
+$$(".mgm").forEach(b=>b.addEventListener("click",toggleAll));
 
 function miniFinish(win,scoreTxt){
   const duo=MG.vs==="duo",L=MG.p,R=MG.o;
@@ -3563,6 +3566,129 @@ function mtAns(S,v,btn){
 function mtShow(){$$(".mtopts .btn").forEach(b=>{b.disabled=true;if(+b.dataset.v===MT.q.ans)b.classList.add("ok")})}
 
 const MINI_INIT={shashka:()=>shInit(),narda:()=>ndInit(),kurash:()=>krInit(),reflex:rxInit,xo:xoInit,c4:c4Init,memory:mmInit,penalty:pnInit,cups:cuInit,math:mtInit};
+
+/* ================= MUSIC (Web Audio — original kuylar) ================= */
+const MUS={cur:null,want:null,tr:null};
+const MUS_VOL=.26,MUS_FILE_VOL=.55;
+const mtof=m=>440*Math.pow(2,(m-69)/12);
+let NB=null;
+function noiseBuf(){if(!NB){NB=AC.createBuffer(1,AC.sampleRate,AC.sampleRate);const d=NB.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}return NB}
+function mOsc(type,f,t,d,v,g,o={}){
+  const os=AC.createOscillator(),e=AC.createGain();os.type=type;os.frequency.setValueAtTime(f,t);
+  if(o.slide)os.frequency.exponentialRampToValueAtTime(o.slide,t+d);
+  if(o.detune)os.detune.value=o.detune;
+  let n=os;if(o.lp){const fl=AC.createBiquadFilter();fl.type="lowpass";fl.frequency.value=o.lp;fl.Q.value=o.q||.7;os.connect(fl);n=fl}
+  const a=o.a||.005;e.gain.setValueAtTime(.0001,t);e.gain.linearRampToValueAtTime(v,t+a);e.gain.exponentialRampToValueAtTime(.0001,t+Math.max(d,a+.01));
+  n.connect(e).connect(g);os.start(t);os.stop(t+d+.05);
+}
+function mNoise(t,d,v,g,type,freq,q){
+  const s=AC.createBufferSource(),f=AC.createBiquadFilter(),e=AC.createGain();
+  s.buffer=noiseBuf();f.type=type;f.frequency.value=freq;f.Q.value=q||.8;
+  e.gain.setValueAtTime(v,t);e.gain.exponentialRampToValueAtTime(.0001,t+d);
+  s.connect(f).connect(e).connect(g);s.start(t,Math.random()*.5,d+.02);
+}
+const I={
+  kick:(t,g,v=1)=>mOsc("sine",150,t,.32,.9*v,g,{slide:42}),
+  snare:(t,g,v=1)=>{mNoise(t,.16,.32*v,g,"bandpass",1900,.8);mOsc("triangle",210,t,.1,.22*v,g,{slide:140})},
+  clap:(t,g,v=1)=>{[0,.012,.024].forEach(o=>mNoise(t+o,.09,.2*v,g,"bandpass",1500,1.2))},
+  hat:(t,g,v=1)=>mNoise(t,.045,.1*v,g,"highpass",7500),
+  dum:(t,g,v=1)=>{mOsc("sine",95,t,.35,.65*v,g,{slide:68});mNoise(t,.08,.14*v,g,"lowpass",600)},
+  tak:(t,g,v=1)=>{mNoise(t,.06,.2*v,g,"bandpass",3200,1.5);mOsc("triangle",680,t,.05,.09*v,g)},
+  bass:(t,g,m,d,v=1)=>mOsc("sawtooth",mtof(m),t,d,.2*v,g,{lp:650,q:4}),
+  pluck:(t,g,m,d,v=1)=>{mOsc("triangle",mtof(m),t,d,.19*v,g);mOsc("sine",mtof(m+12),t,d*.55,.05*v,g)},
+  lead:(t,g,m,d,v=1)=>{mOsc("square",mtof(m),t,d,.06*v,g,{lp:2400});mOsc("square",mtof(m),t,d,.045*v,g,{lp:2400,detune:9})},
+  marimba:(t,g,m,v=1)=>{mOsc("sine",mtof(m),t,.3,.21*v,g);mOsc("sine",mtof(m)*4,t,.06,.045*v,g)},
+  pad:(t,g,ch,d,v=1)=>ch.forEach((n,i)=>mOsc("sawtooth",mtof(n),t,d,.026*v,g,{lp:900,a:.35,detune:i%2?7:-7})),
+  stab:(t,g,ch,v=1)=>ch.forEach(n=>mOsc("sawtooth",mtof(n),t,.18,.045*v,g,{lp:1800}))
+};
+/* MENYU — hijoz lad, sokin */
+const MN_MEL=[74,0,72,0,70,0,69,0,70,0,69,0,66,0,0,0, 67,0,69,0,70,0,69,0,67,0,66,0,63,0,0,0, 62,0,63,0,66,0,67,0,69,0,70,0,69,67,66,0, 63,0,0,0,62,0,0,0,0,0,0,0,0,0,0,0];
+const MN_CH=[[62,66,69],[63,67,70],[60,63,67],[62,66,69]],MN_B=[38,39,36,38];
+function menuStep(s,t,g,sp){
+  const bar=s>>4,i=s&15;
+  if(i===0)I.pad(t,g,MN_CH[bar],sp*16*.98,1);
+  if(i===0||i===6||i===8||i===14)I.bass(t,g,MN_B[bar]+(i===8?12:0),sp*1.6,.9);
+  const m=MN_MEL[s];if(m)I.pluck(t,g,m,sp*2.4,1);
+  if(i===0||i===8)I.kick(t,g,.75);if(i===10)I.kick(t,g,.4);
+  if(i===4||i===12)I.clap(t,g,.55);
+  if(i%2===1)I.hat(t,g,.45);
+  if(i===3||i===11)I.tak(t,g,.5);
+}
+/* JANG — tezkor, minor, doira bilan */
+const BT_LEAD=[74,0,0,72,70,0,69,0,70,0,69,65,67,0,0,0, 69,0,0,67,65,0,64,0,65,0,62,0,64,0,0,0, 70,0,0,69,67,0,65,0,67,0,65,62,64,0,0,0, 72,0,0,70,69,0,67,0,69,0,72,0,74,0,0,0];
+const BT_R=[38,38,34,36],BT_CH=[[62,65,69],[62,65,69],[58,62,65],[60,64,67]];
+function battleStep(s,t,g,sp){
+  const bar=s>>4,i=s&15,r=BT_R[bar];
+  if(i%2===0)I.bass(t,g,r+(i%4===2?12:0),sp*1.5,1);
+  if(i===0)I.stab(t,g,BT_CH[bar],1);
+  const m=BT_LEAD[s];if(m)I.lead(t,g,m,sp*1.8,1);
+  if(i%4===0)I.kick(t,g,1);if(bar===3&&i===14)I.kick(t,g,.7);
+  if(i===4||i===12)I.snare(t,g,1);
+  I.hat(t,g,i%2?.3:.55);
+  if(i===0||i===7||i===10)I.dum(t,g,.55);
+  if(i===3||i===6||i===11||i===14)I.tak(t,g,.5);
+}
+/* MINI O'YINLAR — quvnoq, major, marimba */
+const MI_MEL=[72,0,76,0,79,0,76,0,77,0,76,0,74,0,72,0, 69,0,72,0,76,0,72,0,74,0,72,0,71,0,69,0, 65,0,69,0,72,0,69,0,71,0,72,0,74,0,76,0, 79,0,77,0,76,0,74,0,76,0,74,0,71,0,0,0];
+const MI_R=[48,45,41,43],MI_CH=[[72,76,79],[69,72,76],[65,69,72],[67,71,74]];
+function miniStep(s,t,g,sp){
+  const bar=s>>4,i=s&15,r=MI_R[bar];
+  if(i===0)I.pad(t,g,MI_CH[bar],sp*16*.98,.7);
+  if(i===0||i===3||i===6||i===8||i===10||i===12)I.bass(t,g,r+(i===3||i===12?12:i===8?7:0),sp*1.2,.8);
+  const m=MI_MEL[s];if(m)I.marimba(t,g,m,1);
+  if(i===0||i===8)I.kick(t,g,.75);
+  if(i===4||i===12)I.clap(t,g,.5);
+  if(i%4===2)I.hat(t,g,.55);else if(i%2===1)I.hat(t,g,.2);
+}
+const TRACKS={menu:{bpm:100,len:64,step:menuStep},battle:{bpm:136,len:64,step:battleStep},mini:{bpm:120,len:64,step:miniStep}};
+/* O'z MP3 fayllaringiz (ixtiyoriy): index.html yoniga shu nomlar bilan qo'ying */
+const MFILES={menu:"music-menu.mp3",battle:"music-battle.mp3",mini:"music-mini.mp3"},MEL={};
+(function probe(){
+  if(!/^https?:$/.test(location.protocol)||/claude|anthropic/.test(location.hostname))return;
+  for(const k in MFILES){const a=new Audio();a.preload="auto";a.loop=true;a.addEventListener("canplaythrough",()=>{MEL[k]=a},{once:true});a.addEventListener("error",()=>{},{once:true});a.src=MFILES[k]}
+})();
+function mSched(tr){
+  if(!AC||AC.state!=="running")return;
+  const sp=60/tr.def.bpm/4,now=AC.currentTime;
+  if(tr.next<now-.05)tr.next=now+.02;
+  while(tr.next<now+.12){tr.def.step(tr.step,tr.next,tr.g,sp);tr.step=(tr.step+1)%tr.def.len;tr.next+=sp}
+}
+function musicPlay(name){
+  const g=AC.createGain(),t=AC.currentTime,fileEl=MEL[name];
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(fileEl?MUS_FILE_VOL:MUS_VOL,t+.9);g.connect(AC.destination);
+  const tr={name,g,step:0,next:t+.08,def:TRACKS[name],timer:null,el:null};
+  if(fileEl){try{if(!fileEl._src)fileEl._src=AC.createMediaElementSource(fileEl);fileEl._src.disconnect();fileEl._src.connect(g);fileEl.currentTime=0;fileEl.play().catch(()=>{});tr.el=fileEl}catch(e){tr.el=null}}
+  if(!tr.el)tr.timer=setInterval(()=>mSched(tr),25);
+  MUS.tr=tr;MUS.cur=name;
+}
+function musicStop(){
+  const tr=MUS.tr;if(!tr)return;MUS.tr=null;MUS.cur=null;
+  try{const t=AC.currentTime;tr.g.gain.cancelScheduledValues(t);tr.g.gain.setValueAtTime(Math.max(tr.g.gain.value,.0001),t);tr.g.gain.exponentialRampToValueAtTime(.0001,t+.6)}catch(e){}
+  setTimeout(()=>{clearInterval(tr.timer);if(tr.el)tr.el.pause();try{tr.g.disconnect()}catch(e){}},700);
+}
+function musicApply(){
+  if(!DB.settings.music){musicStop();return}
+  if(!AC||AC.state!=="running"||document.hidden)return;
+  if(MUS.cur===MUS.want)return;
+  musicStop();if(MUS.want)musicPlay(MUS.want);
+}
+const SCREEN_MUSIC={home:"menu",select:"menu",bracket:"menu",stats:"menu",settings:"menu",minis:"menu",vs:"battle",game:"battle",gsh:"mini",gnd:"mini",gkr:"mini",gmg:"mini"};
+function musicFor(id){if(id in SCREEN_MUSIC){MUS.want=SCREEN_MUSIC[id];musicApply()}}
+function audioWake(){ensureAudio();if(AC&&AC.state!=="running")AC.resume().then(musicApply).catch(()=>{});else musicApply()}
+document.addEventListener("pointerdown",audioWake,true);
+document.addEventListener("visibilitychange",()=>{
+  if(!AC)return;
+  if(document.hidden){AC.suspend().catch(()=>{})}
+  else AC.resume().then(musicApply).catch(()=>{});
+});
+function soundOff(){return !DB.settings.sound&&!DB.settings.music}
+function toggleAll(){
+  const on=DB.settings.sound||DB.settings.music;
+  DB.settings.sound=!on;DB.settings.music=!on;MUTED=!DB.settings.sound;save();
+  updMute();updMgMute();
+  if(on)musicStop();else audioWake();
+  if(!on)sfx.tap();
+}
 
 /* ================= CONFETTI ================= */
 const cv=$("#fx"),cx=cv.getContext("2d");let parts=[],raf=null,W=0,H=0;
